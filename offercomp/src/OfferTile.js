@@ -21,3 +21,5 @@ function OfferTile(props) {
     </div>
   );
 }
+
+export default OfferTile;
