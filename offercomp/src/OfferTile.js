@@ -9,3 +9,15 @@ function OfferTile(props) {
     description = '',
     clickHandler,
   } = props;
+
+  return (
+    <div>
+      <img src={imageUrl} alt={name} />
+      <h3>{name}</h3>
+      <p>{description}</p>
+      <p>Price: {price}</p>
+      <p>Visited Count: {visitedCount}</p>
+      <button onClick={clickHandler}>Mark Visited</button>
+    </div>
+  );
+}
