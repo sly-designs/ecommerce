@@ -23,3 +23,23 @@ const MARK_VISITED = gql`
     }
   }
 `;
+
+function HolidayOffers() {
+    const { loading, error, data } = useQuery(GET_OFFERS);
+  
+    const [markVisited] = useMutation(MARK_VISITED, {
+      update(cache, { data: { markVisited } }) {
+        cache.modify({
+          fields: {
+            offers(existingOffers = [], { readField }) {
+              return existingOffers.map((offer) => {
+                if (readField('id', offer) === markVisited.id) {
+                  return { ...offer, visitedCount: markVisited.visitedCount };
+                }
+                return offer;
+              });
+            },
+          },
+        });
+      },
+    });
