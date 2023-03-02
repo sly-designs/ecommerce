@@ -57,3 +57,19 @@ function HolidayOffers() {
       }
     
       const { offers } = data;
+
+      return (
+        <div>
+          {offers.map((offer) => (
+            <OfferTile
+              key={offer.id}
+              name={offer.name}
+              visitedCount={offer.visitedCount}
+              price={`${offer.price} ${offer.currency}`}
+              imageUrl={offer.imageUrl}
+              description={offer.description || ''}
+              clickHandler={() => handleMarkVisited(offer.id)}
+            />
+          ))}
+        </div>
+      );
