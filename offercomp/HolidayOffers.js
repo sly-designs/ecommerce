@@ -43,3 +43,17 @@ function HolidayOffers() {
         });
       },
     });
+
+    const handleMarkVisited = (offerId) => {
+        markVisited({ variables: { offerId } });
+      };
+    
+      if (loading) {
+        return <div>Loading offers...</div>;
+      }
+    
+      if (error) {
+        return <div>Failed to load offers</div>;
+      }
+    
+      const { offers } = data;
