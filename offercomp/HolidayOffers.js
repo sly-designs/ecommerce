@@ -15,3 +15,11 @@ const GET_OFFERS = gql`
     }
   }
 `;
+
+const MARK_VISITED = gql`
+  mutation MarkVisited($offerId: String!) {
+    markVisited(offerId: $offerId) {
+      visitedCount
+    }
+  }
+`;
